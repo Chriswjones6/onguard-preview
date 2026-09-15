@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>OnGuard Landing Page</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -213,6 +218,40 @@
   .faq p{color:var(--muted);font-size:.93rem}
 
   /* final cta */
+  /* ---------- sign-up form ---------- */
+  .signup{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:clamp(28px,5vw,64px);padding-block:clamp(56px,7vw,88px)}
+  @media (max-width:860px){ .signup{grid-template-columns:1fr} }
+  .signup__intro h2{font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:800;margin-top:14px}
+  .signup__intro p{margin-top:14px;color:var(--text-2);font-size:1.02rem;max-width:40ch}
+  .signup__alt{margin-top:26px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
+  .signup__alt span{font-size:.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:.14em;font-family:var(--display);font-weight:700}
+  .signup__alt a{font-family:var(--display);font-weight:800;font-size:1.5rem;color:var(--red)}
+  .signup__form{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3vw,34px);
+    box-shadow:0 24px 60px -36px rgba(13,13,15,.35);display:flex;flex-direction:column;gap:18px}
+  .f-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+  @media (max-width:560px){ .f-grid{grid-template-columns:1fr} }
+  .f{display:flex;flex-direction:column;gap:6px}
+  .f--wide{grid-column:1/-1}
+  .f>span{font-family:var(--display);font-weight:600;font-size:.84rem;color:#3a3a44}
+  .f>span b{color:var(--red);font-weight:700}
+  .f input,.f select,.f textarea{
+    font:inherit;font-size:.98rem;color:#14141a;background:#fbfbfc;
+    border:1.5px solid rgba(13,13,15,.16);border-radius:10px;padding:.72rem .85rem;width:100%;
+    transition:border-color .15s,box-shadow .15s}
+  .f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(215,31,39,.14);background:#fff}
+  .f textarea{resize:vertical;min-height:84px}
+  .f-set{border:0;padding:0;margin:0;min-width:0}
+  .f-set legend{font-family:var(--display);font-weight:600;font-size:.84rem;color:#3a3a44;padding:0;margin-bottom:10px}
+  .f-set legend small{font-weight:400;color:var(--muted)}
+  .f-checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px 14px}
+  .f-checks label{display:flex;align-items:center;gap:9px;font-size:.93rem;color:#14141a;padding:.5rem .7rem;border:1.5px solid rgba(13,13,15,.12);border-radius:9px;background:#fbfbfc;cursor:pointer}
+  .f-checks label:has(input:checked){border-color:var(--red);background:rgba(215,31,39,.05)}
+  .f-checks input{accent-color:var(--red);width:16px;height:16px;margin:0}
+  .f-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;padding-top:4px}
+  .f-note{font-size:.82rem;color:var(--muted);max-width:36ch}
+  .f-note.ok{color:#1b7f3b;font-weight:600;max-width:none}
+  .f-note.err{color:var(--red);font-weight:600;max-width:none}
+
   .final{background:var(--red)}
   .final .wrap{padding-block:clamp(44px,6vw,68px);display:flex;flex-wrap:wrap;gap:26px;
     align-items:center;justify-content:space-between}
@@ -244,6 +283,8 @@
   .teaser-side ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
   .teaser-side li{display:flex;gap:10px;align-items:flex-start;font-size:.93rem;color:var(--text-2)}
 </style>
+</head>
+<body style="margin:0">
 
 <!-- ===================== NAV ===================== -->
 <div class="nav">
@@ -575,11 +616,89 @@
   </div>
 </section>
 
+<!-- ===================== SIGN-UP FORM ===================== -->
+<section class="light" id="join">
+  <div class="wrap signup">
+    <div class="signup__intro">
+      <div class="kicker">Get started</div>
+      <h2>Tell us about the property</h2>
+      <p>Two minutes. We'll call you within one business day to set up your enrollment visit — no card, no commitment until you've seen the plan in writing.</p>
+      <div class="signup__alt">
+        <span>Rather talk?</span>
+        <a href="tel:8436554121">(843) 655-4121</a>
+      </div>
+    </div>
+
+    <form id="onguardForm" class="signup__form" action="https://formspree.io/f/mqerwboe" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="OnGuard sign-up — new enrollment request">
+      <input type="hidden" name="source" value="OnGuard landing page">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+
+      <div class="f-grid">
+        <label class="f"><span>Your name <b>*</b></span><input type="text" name="name" autocomplete="name" required></label>
+        <label class="f"><span>Phone <b>*</b></span><input type="tel" name="phone" autocomplete="tel" required></label>
+        <label class="f f--wide"><span>Email <b>*</b></span><input type="email" name="email" autocomplete="email" required></label>
+        <label class="f f--wide"><span>Property address <b>*</b></span><input type="text" name="address" autocomplete="street-address" placeholder="Street, city — Myrtle Beach area" required></label>
+
+        <label class="f"><span>Property type</span>
+          <select name="property_type">
+            <option>House</option><option>Townhome / condo</option><option>Rental I own</option><option>Commercial / office</option>
+          </select></label>
+        <label class="f"><span>Roughly how old is it?</span>
+          <select name="home_age">
+            <option>Under 10 years</option><option>10–25 years</option><option>25–40 years</option><option>40+ years</option><option>Not sure</option>
+          </select></label>
+        <label class="f"><span>Number of HVAC systems</span>
+          <select name="hvac_systems">
+            <option>1</option><option>2</option><option>3 or more</option><option>Not sure</option>
+          </select></label>
+        <label class="f"><span>Plan you're leaning toward</span>
+          <select name="plan">
+            <option>Not sure yet — help me choose</option><option>Semiannual (2 visits / yr)</option><option>Quarterly (4 visits / yr)</option>
+          </select></label>
+      </div>
+
+      <fieldset class="f-set">
+        <legend>What worries you most? <small>(check any)</small></legend>
+        <div class="f-checks">
+          <label><input type="checkbox" name="concerns[]" value="HVAC / air filters"> HVAC &amp; air filters</label>
+          <label><input type="checkbox" name="concerns[]" value="Plumbing leaks"> Plumbing leaks</label>
+          <label><input type="checkbox" name="concerns[]" value="Water heater"> Water heater</label>
+          <label><input type="checkbox" name="concerns[]" value="Smoke / CO detectors"> Smoke &amp; CO detectors</label>
+          <label><input type="checkbox" name="concerns[]" value="Electrical / GFCI"> Electrical &amp; GFCI outlets</label>
+          <label><input type="checkbox" name="concerns[]" value="Dryer vent"> Dryer vent</label>
+          <label><input type="checkbox" name="concerns[]" value="Exterior / storm prep"> Exterior &amp; storm prep</label>
+          <label><input type="checkbox" name="concerns[]" value="Just want it handled"> I just want it handled</label>
+        </div>
+      </fieldset>
+
+      <label class="f f--wide"><span>Anything you already know needs replacing or looked at?</span>
+        <textarea name="known_issues" rows="3" placeholder="e.g. upstairs unit is loud, guest bath toilet runs, gutters overflow in the corner"></textarea></label>
+
+      <div class="f-grid">
+        <label class="f"><span>Has JICO worked on this property before?</span>
+          <select name="past_customer">
+            <option>No</option><option>Yes, within the last 2 years</option><option>Yes, longer ago</option>
+          </select></label>
+        <label class="f"><span>How did you hear about OnGuard?</span>
+          <select name="referral">
+            <option>Past JICO customer</option><option>Realtor</option><option>Google</option><option>Facebook / social</option><option>Friend or neighbor</option><option>Flyer</option><option>Other</option>
+          </select></label>
+      </div>
+
+      <div class="f-actions">
+        <button type="submit" class="btn btn--red" id="onguardSubmit">Request my enrollment visit</button>
+        <p class="f-note" id="onguardNote">We'll only use this to set up your visit. No spam, no sharing.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
 <!-- ===================== FINAL CTA ===================== -->
-<div class="final" id="join">
+<div class="final">
   <div class="wrap">
     <div>
-      <h2>Book your enrollment visit</h2>
+      <h2>Prefer to just call?</h2>
       <p>We'll walk the house, set you up, and you'll have your first report inside a week.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start">
@@ -709,6 +828,40 @@
     setInterval(step, DWELL);
   })();
 
+  /* ---------- sign-up form → Formspree (same endpoint as getjicon.com), mailto fallback ---------- */
+  (function () {
+    var form = document.getElementById('onguardForm'); if (!form) return;
+    var note = document.getElementById('onguardNote');
+    var btn = document.getElementById('onguardSubmit');
+    var q = function (n) { var el = form.querySelector('[name="' + n + '"]'); return el ? el.value : ''; };
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = q('name').trim(), phone = q('phone').trim(), email = q('email').trim(), address = q('address').trim();
+      if (!name || !phone || !email || !address) {
+        note.textContent = 'Please add your name, phone, email and the property address.'; note.className = 'f-note err'; return;
+      }
+      var orig = btn.textContent; btn.disabled = true; btn.textContent = 'Sending…';
+      var action = form.getAttribute('action') || '';
+      function ok() {
+        form.reset(); btn.disabled = false; btn.textContent = orig;
+        note.textContent = 'Got it — thank you. We’ll call within one business day to set up your enrollment visit.'; note.className = 'f-note ok';
+      }
+      function fail() {
+        btn.disabled = false; btn.textContent = orig;
+        var concerns = Array.prototype.map.call(form.querySelectorAll('[name="concerns[]"]:checked'), function (c) { return c.value; }).join(', ');
+        var body = 'ONGUARD SIGN-UP\n\nName: ' + name + '\nPhone: ' + phone + '\nEmail: ' + email +
+          '\nAddress: ' + address + '\nProperty type: ' + q('property_type') + '\nAge: ' + q('home_age') +
+          '\nHVAC systems: ' + q('hvac_systems') + '\nPlan: ' + q('plan') + '\nConcerns: ' + concerns +
+          '\nKnown issues: ' + q('known_issues') + '\nPast customer: ' + q('past_customer') + '\nHeard via: ' + q('referral') + '\n';
+        var mailto = 'mailto:getjicon@gmail.com?subject=' + encodeURIComponent('OnGuard sign-up — ' + name) + '&body=' + encodeURIComponent(body);
+        var w = window.open(mailto, '_blank'); if (!w) window.location.href = mailto;
+        note.textContent = 'Opening your email app to send this to us…'; note.className = 'f-note';
+      }
+      fetch(action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+        .then(function (r) { if (r.ok) ok(); else fail(); })['catch'](fail);
+    });
+  })();
+
   const TICK = '<svg width="15" height="15" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10.5 L8 15 L17 5" stroke="#D71F27" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   document.querySelectorAll('.tick').forEach(function (el) { el.innerHTML = TICK; });
 
@@ -752,3 +905,6 @@
   belt(document.getElementById('track-a'), 0);
   belt(document.getElementById('track-b'), 10);
 </script>
+
+</body>
+</html>
