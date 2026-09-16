@@ -153,12 +153,13 @@
   .sec-head h2{font-size:clamp(1.75rem,3.6vw,2.65rem);font-weight:800}
   .sec-head p{color:var(--muted);max-width:62ch}
 
-  /* trust trio */
-  .trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-  @media (max-width:860px){ .trio{grid-template-columns:1fr} }
-  .trio > div{border-top:2px solid var(--red);padding-top:20px;display:flex;flex-direction:column;gap:9px}
-  .trio h3{font-size:1.22rem;font-weight:700}
-  .trio p{color:var(--muted);font-size:.96rem}
+  /* who it's for */
+  .who{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+  @media (max-width:960px){ .who{grid-template-columns:repeat(2,minmax(0,1fr))} }
+  @media (max-width:560px){ .who{grid-template-columns:1fr} }
+  .who > div{border-top:2px solid var(--red);padding-top:18px;display:flex;flex-direction:column;gap:8px}
+  .who h3{font-size:1.08rem;font-weight:700;line-height:1.25}
+  .who p{color:var(--muted);font-size:.93rem}
 
   /* service list */
   .svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 46px}
@@ -207,6 +208,10 @@
   .step p{color:var(--muted);font-size:.95rem}
 
   /* addons */
+  .away{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 28px;border:1.5px solid var(--red);border-radius:16px;padding:clamp(18px,2.6vw,26px);margin-bottom:22px;background:rgba(215,31,39,.035)}
+  .away__body{flex:1 1 420px;display:flex;flex-direction:column;gap:8px}
+  .away h3{font-size:1.35rem;font-weight:800}
+  .away p{color:var(--text-2);font-size:.95rem;max-width:66ch}
   .addons{display:flex;flex-wrap:wrap;gap:10px}
   .addons span{border:1px solid var(--line-2);border-radius:8px;padding:10px 15px;font-size:.93rem;color:var(--text-2)}
 
@@ -239,6 +244,11 @@
   .calc__row b{color:#fff;font-family:var(--display);font-weight:700}
   .calc__note{font-size:.84rem;color:#a0a0a8;margin-top:4px;line-height:1.5}
   .calc__out .btn{margin-top:8px;justify-content:center}
+
+  .commercial{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px;padding-block:clamp(40px,5vw,60px)}
+  .commercial > div{flex:1 1 480px;display:flex;flex-direction:column;gap:12px}
+  .commercial h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;max-width:24ch}
+  .commercial p{color:var(--text-2);max-width:56ch}
 
   /* ---------- sign-up form ---------- */
   .signup{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:clamp(28px,5vw,64px);padding-block:clamp(56px,7vw,88px)}
@@ -365,21 +375,30 @@
 <!-- ===================== TRUST TRIO ===================== -->
 <section class="light">
   <div class="wrap">
-    <div class="trio">
+    <div class="sec-head" style="margin-bottom:22px">
+      <p class="kicker">Who it's for</p>
+      <h2>Built for the way people own homes here</h2>
+    </div>
+    <div class="who">
       <div>
-        <h3>It costs less than the fix</h3>
-        <p>A $14 filter changed on time beats a seized blower motor. A dryer vent cleared beats a
-          fire. Most of what we catch is cheap while it's small and expensive once it isn't.</p>
+        <h3>Staying in the home you love</h3>
+        <p>The ladder work, the filters, the detector on the vaulted ceiling &mdash; handled. At the
+          enrollment visit we'll also note anything that would make the house safer to live in for years to come.</p>
       </div>
       <div>
-        <h3>You stop keeping track</h3>
-        <p>No calendar reminders, no wondering when the detectors were last tested. We show up on
-          the schedule, do the same work every time, and send you photos of what we found.</p>
+        <h3>Looking after a parent's house from out of town</h3>
+        <p>Every report can go to you as well as to them. You see what we saw, with photos, without
+          having to drive down to check.</p>
       </div>
       <div>
-        <h3>One company, start to finish</h3>
-        <p>We're a licensed general contractor, not a handyman service. When we find rotted trim or
-          a failing shower pan, the same team quotes it, schedules it and repairs it.</p>
+        <h3>Second homes and snowbirds</h3>
+        <p>We keep the routine going while you're gone, and OnGuard Away covers the weeks the house sits
+          empty &mdash; so you're not finding out in May what happened in February.</p>
+      </div>
+      <div>
+        <h3>Busy families</h3>
+        <p>The list nobody gets to on a Saturday. Off your calendar, onto ours, with a photo report so you
+          know it got done.</p>
       </div>
     </div>
   </div>
@@ -521,8 +540,9 @@
         <span class="num">01</span>
         <h3>We walk your home</h3>
         <p>One enrollment visit, $99. We record every filter size, find the shutoffs and the panel,
-          note appliance models and paint colors, and photograph the baseline. Free if we've worked
-          for you in the last two years.</p>
+          note appliance models and paint colors, and photograph the baseline. If anything would make the
+          house safer to age in &mdash; grab bars, lighting, a step that's become a trip &mdash; we'll say so.
+          Free if we've worked for you in the last two years.</p>
       </div>
       <div class="step">
         <span class="num">02</span>
@@ -549,6 +569,17 @@
       <p>Priced for your property, scheduled automatically, billed alongside your membership —
         so they happen without you booking anything.</p>
     </div>
+    <div class="away">
+      <div class="away__body">
+        <span class="plan-tag">Members only</span>
+        <h3>OnGuard Away</h3>
+        <p>For the weeks the house sits empty. A walk-through every week or every other week &mdash; thermostat,
+          water, a pass inside and out, photos every time &mdash; plus a walk before and after any named storm.
+          Billed per visit, only while you're gone. Many homeowner policies expect an empty house to be
+          checked regularly; ask your insurer what yours requires.</p>
+      </div>
+      <a class="btn btn--ghost" href="#join">Ask about Away</a>
+    </div>
     <div class="addons">
       <span>Gutter cleaning</span>
       <span>House &amp; driveway pressure washing</span>
@@ -556,7 +587,6 @@
       <span>Crawlspace moisture check</span>
       <span>Deck &amp; railing sealing</span>
       <span>Hurricane prep and post-storm walk</span>
-      <span>Vacancy checks while you're away</span>
     </div>
   </div>
 </section>
@@ -629,6 +659,19 @@
   </div>
 </section>
 
+<!-- ===================== COMMERCIAL ===================== -->
+<section class="light light--alt">
+  <div class="wrap commercial">
+    <div>
+      <p class="kicker">Commercial property</p>
+      <h2>Small offices, retail suites and rental buildings &mdash; you're next.</h2>
+      <p>OnGuard started with homes. The commercial program is being built now. Tell us about the property
+        and you'll be the first to hear when it opens.</p>
+    </div>
+    <a class="btn btn--red" href="#join">Put my property on the list</a>
+  </div>
+</section>
+
 <!-- ===================== SIGN-UP FORM ===================== -->
 <section class="light" id="join">
   <div class="wrap signup">
@@ -687,6 +730,9 @@
 
       <label class="f f--wide"><span>Anything you already know needs replacing or looked at?</span>
         <textarea name="known_issues" rows="3" placeholder="e.g. upstairs unit is loud, guest bath toilet runs, gutters overflow in the corner"></textarea></label>
+
+      <label class="f f--wide"><span>Send a copy of each report to someone else? <small style="font-weight:400;color:#8a8a94">(optional &mdash; a family member, a property manager)</small></span>
+        <input type="text" name="report_copy_to" placeholder="Name and email"></label>
 
       <div class="f-grid">
         <label class="f"><span>Has JICO worked on this property before?</span>
@@ -868,7 +914,7 @@
         var body = 'ONGUARD SIGN-UP\n\nName: ' + name + '\nPhone: ' + phone + '\nEmail: ' + email +
           '\nAddress: ' + address + '\nProperty type: ' + q('property_type') + '\nAge: ' + q('home_age') +
           '\nHVAC systems: ' + q('hvac_systems') + '\nPlan: ' + q('plan') + '\nConcerns: ' + concerns +
-          '\nKnown issues: ' + q('known_issues') + '\nPast customer: ' + q('past_customer') + '\nHeard via: ' + q('referral') + '\n';
+          '\nKnown issues: ' + q('known_issues') + '\nReport copy to: ' + q('report_copy_to') + '\nPast customer: ' + q('past_customer') + '\nHeard via: ' + q('referral') + '\n';
         var mailto = 'mailto:getjicon@gmail.com?subject=' + encodeURIComponent('OnGuard sign-up — ' + name) + '&body=' + encodeURIComponent(body);
         var w = window.open(mailto, '_blank'); if (!w) window.location.href = mailto;
         note.textContent = 'Opening your email app to send this to us…'; note.className = 'f-note';
