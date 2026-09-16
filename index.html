@@ -250,6 +250,16 @@
   .commercial h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;max-width:24ch}
   .commercial p{color:var(--text-2);max-width:56ch}
 
+  .agents{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  @media (max-width:860px){ .agents{grid-template-columns:1fr} }
+  .agents > div{border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:8px;background:#fff}
+  .agents__tag{font-family:var(--display);font-weight:700;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+  .agents h3{font-size:1.15rem;font-weight:800}
+  .agents p{color:var(--text-2);font-size:.94rem}
+  .agents p b{color:#14141a}
+  .agents__foot{margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;color:var(--muted);font-size:.93rem}
+  .agents__foot a:not(.btn){color:var(--red);font-weight:600}
+
   /* ---------- sign-up form ---------- */
   .signup{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:clamp(28px,5vw,64px);padding-block:clamp(56px,7vw,88px)}
   @media (max-width:860px){ .signup{grid-template-columns:1fr} }
@@ -682,6 +692,43 @@
   </div>
 </section>
 
+<!-- ===================== REALTORS ===================== -->
+<section class="light">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:24px">
+      <p class="kicker">For real estate agents</p>
+      <h2>The small things cost you at the negotiating table.</h2>
+      <p>A running toilet, a dead GFCI, a detector with no battery &mdash; none of it is expensive, and all of it
+        shows up on the buyer's inspection report and turns into a credit. Three ways we help before that happens.</p>
+    </div>
+    <div class="agents">
+      <div>
+        <span class="agents__tag">One-time visit</span>
+        <h3>Pre-listing visit</h3>
+        <p>One OnGuard visit before the house hits the market, no membership. All eleven points handled, plus a
+          photo report your seller can hand to a buyer. <b>$179</b>.</p>
+      </div>
+      <div>
+        <span class="agents__tag">Closing gift</span>
+        <h3>A year of OnGuard</h3>
+        <p>The gift that shows up four times. Your name on the certificate, your name on every report your
+          client gets for the first year they own the place. Agent pricing for five or more a year.</p>
+      </div>
+      <div>
+        <span class="agents__tag">Rentals</span>
+        <h3>Turnover visit</h3>
+        <p>The same visit between tenants. Everything reset and documented before the new lease starts, so
+          the first call from your new tenant isn't about something the last one left behind.</p>
+      </div>
+    </div>
+    <div class="agents__foot">
+      <span>Bigger repairs coming off the inspection report? That's JICO Construction &mdash; same crew, one call.
+        <a href="https://getjicon.com/#contact">Get a quote &rarr;</a></span>
+      <a class="btn btn--red" href="#join">Send us the address</a>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== SIGN-UP FORM ===================== -->
 <section class="light" id="join">
   <div class="wrap signup">
@@ -708,7 +755,7 @@
 
         <label class="f"><span>Property type</span>
           <select name="property_type">
-            <option>House</option><option>Townhome / condo</option><option>Rental I own</option><option>Commercial / office</option>
+            <option>House</option><option>Townhome / condo</option><option>Rental I own or manage</option><option>Listing I represent</option><option>Commercial / office</option>
           </select></label>
         <label class="f"><span>Roughly how old is it?</span>
           <select name="home_age">
@@ -720,7 +767,7 @@
           </select></label>
         <label class="f"><span>Plan you're leaning toward</span>
           <select name="plan">
-            <option>Not sure yet — help me choose</option><option>Semiannual (2 visits / yr)</option><option>Quarterly (4 visits / yr)</option>
+            <option>Not sure yet — help me choose</option><option>Semiannual (2 visits / yr)</option><option>Quarterly (4 visits / yr)</option><option>Pre-listing visit (one time)</option><option>Rental turnover visit (one time)</option><option>Closing gift for a client</option><option>Commercial — put me on the list</option>
           </select></label>
       </div>
 
